@@ -12,19 +12,21 @@
 </head>
 
 <body>
-   <header>
-      <img src="images/Logo.png" id="hlogo" />
+
+
+   <header class="header">
+      <h1>MAGM <span>Software</span> </h1>
    </header>
-
+   
    <main>
-      <h1 id="nombre">AHORCADO</h1>
+      <h1 id="nombre">A H O R C A D O</h1>
+      <img src="images/hangman.png" class="imgMain" />
 
-      <img src="images/ahorcado_0.png" id="dibujo" />
 
       <section class="buttons">
-         <button id="startButton">Iniciar juego</button>
-         <button id="addWordButton">
-            Agregar nueva palabra
+         <button id="startButton" class="startButton">Play with random word</button>
+         <button id="addWordButton" class="addWordButton">
+            Play with own word
          </button>
       </section>
 
@@ -39,6 +41,7 @@
             <button class="rightButton" id="cancelButton">Cancelar</button>
          </div>
       </section>
+
       <section class="game">
          <div class="draw">
             <img class="ahorcado" src="images/ahorcado/piso.svg" id="piso" />
@@ -61,10 +64,12 @@
             <div id="juegopausa">JUEGO EN PAUSA</div>
             <div id="continuar">Click aquí para reanudar</div>
          </div>
+
          <div class="botoneraGame">
             <button class="leftButton" id="newGameButton">Nuevo juego</button>
             <button class="rightButton" id="returnButton">Volver</button>
          </div>
+         
       </section>
    </main>
    <script src="script.js"></script>

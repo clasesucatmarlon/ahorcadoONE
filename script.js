@@ -1,6 +1,6 @@
 //Elementos del HTML
-var start = document.querySelector("#startButton");
-var addWordB = document.querySelector("#addWordButton");
+var start = document.querySelector(".startButton");
+var addWordB = document.querySelector(".addWordButton");
 var newWord = document.querySelector(".newWord");
 var save = document.querySelector("#saveButton");
 var cancel = document.querySelector("#cancelButton");
@@ -18,58 +18,33 @@ var wLetter = document.getElementsByClassName("wrongLetter");
 var ahorcado = document.getElementsByClassName("ahorcado");
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
-var dibujo = document.querySelector("#dibujo");
+var imgMain = document.querySelector(".imgMain");
 var nombre = document.querySelector("#nombre");
 var letraV = document.querySelector("#letraVirtual");
 var pausa = document.querySelector("#pausa");
 
 //Variables para el juego
 var palabras = [
-    "SOL",
-    "CASA",
-    "ARBOL",
-    "SALIDA",
-    "COLOREAR",
-    "SALMUERA",
-    "PODA",
-    "TALAR",
-    "PESCADO",
-    "ALADO",
-    "ALIANZA",
-    "ALTURA",
-    "CAJONES",
-    "CORREA",
-    "CADENAS",
-    "COMETA",
-    "CAIMAN",
-    "REAL",
-    "PUERTA",
-    "AVARO",
-    "APATICO",
-    "POLEA",
-    "ALPACA",
-    "MINIMO",
-    "RATON",
-    "CALOR",
-    "OLEADA",
-    "INVIERNO",
-    "VERANO",
-    "PAREJO",
-    "APARATO",
-    "APAREJO",
-    "OPULENTO",
-    "SALVAJE",
-    "SANTO",
-    "SORBER",
-    "CEPILLO",
-    "SORTEA",
-    "ALAMBRE",
-    "SARGENTO",
-    "ALARDEO",
-    "ARQUEA",
-    "CURVA",
-    "PELOTA",
-    "DEPORTE",
+    "COLOMBIA",
+    "VENEZUELA",
+    "TECHNOLOGY",
+    "JAVASCRIPT",
+    "HTML",
+    "REACTJS",
+    "ANGULAR",
+    "SASS",
+    "VUE",
+    "ORACLE",
+    "WORKING",
+    "PROGRAMING",
+    "COMPUTER",
+    "GAMES",
+    "STRING",
+    "BUCLE",
+    "CONDITIONAL",
+    "INTERVIEW",
+    "INTERNET",
+    "LAPTOP"
 ];
 var palabra = palabras[Math.floor(Math.random() * palabras.length)]; //Selección aleatoria de palabra
 var arrayPalabra = palabra.toString().split("");
@@ -83,35 +58,36 @@ var restaintentos = 7; //Verifica si quedan intentos
 var validador = new Array(0); //Valida las letras correctas
 var jugando = false; //verifica si está activo el juego
 var alphabet = [
-    "Q",
-    "W",
-    "E",
-    "R",
-    "T",
-    "Y",
-    "U",
-    "I",
-    "O",
-    "P",
     "A",
-    "S",
+    "B",
+    "C",
     "D",
+    "E",
     "F",
     "G",
     "H",
+    "I",
     "J",
     "K",
     "L",
-    "Z",
-    "X",
-    "C",
-    "V",
-    "B",
-    "N",
     "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z"
 ];
 var responsive = window.matchMedia("(max-width: 700px)");
 var desktop = window.matchMedia("(min-width: 701px)");
+
 //Funciones para mostrar u ocultar objetos
 function ocultar(algo) {
     algo.style.display = "none";
@@ -154,7 +130,7 @@ function comenzar() {
 function arranque() {
     ocultar(buttons);
     ocultar(addword);
-    ocultar(dibujo);
+    ocultar(imgMain);
     ocultar(nombre);
     mostrar(game);
     comenzar();
@@ -286,7 +262,7 @@ function volver() {
     ocultar(game);
     ocultar(addword);
     mostrar(buttons);
-    mostrar(dibujo);
+    mostrar(imgMain);
     mostrar(nombre);
 }
 
@@ -297,7 +273,7 @@ function sumaPalabra() {
     palabra = "";
     arrayPalabra = [];
     ocultar(buttons);
-    ocultar(dibujo);
+    ocultar(imgMain);
     ocultar(nombre);
     mostrar(addword);
     newWord.focus();
