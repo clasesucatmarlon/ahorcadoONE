@@ -11,7 +11,6 @@ var wWord = document.querySelector(".wrongWord");
 var retButton = document.querySelector(".returnButton");
 var draw = document.querySelector(".draw");
 var buttons = document.querySelector(".buttons");
-var addword = document.querySelector(".addWord");
 var game = document.querySelector(".game");
 var rLetter = document.getElementsByClassName("rightLetter");
 var wLetter = document.getElementsByClassName("wrongLetter");
@@ -21,7 +20,6 @@ var lose = document.querySelector(".lose");
 var imgMain = document.querySelector(".imgMain");
 var nombre = document.querySelector("#nombre");
 var letraV = document.querySelector("#letraVirtual");
-var pausa = document.querySelector("#pausa");
 
 //Variables para el juego
 var palabras = [
@@ -129,7 +127,6 @@ function comenzar() {
 
 function arranque() {
     ocultar(buttons);
-    ocultar(addword);
     ocultar(imgMain);
     ocultar(nombre);
     mostrar(game);
@@ -164,16 +161,6 @@ function jugarmobile() {
     }
 }
 
-function pausar() {
-    if (jugando == true) {
-        mostrar(pausa);
-    }
-}
-
-function continuar() {
-    ocultar(pausa);
-}
-
 function captarTecla(event) {
     keypressed = event.which || event.keyCode;
     if ((keypressed > 64 && keypressed < 91) || keypressed == 192) {
@@ -206,12 +193,12 @@ function mostrarerror() {
 
 function fin() {
     if (validador.length == arrayPalabra.length) {
-        win.innerHTML = "Has ganado!!!";
+        win.innerHTML = "Congratulations, you won!!!";
         jugando = false;
     }
     if (restaintentos == 0) {
-        lose.innerHTML = "Has fallado";
-        rWord.innerHTML = "La palabra era: " + palabra;
+        lose.innerHTML = "Sorry, you lose!!!";
+        rWord.innerHTML = "The word was: " + palabra;
         jugando = false;
     }
     if (jugando == false) {
@@ -260,7 +247,6 @@ function volver() {
     arrayPalabra = palabra.toString().split("");
     largo = arrayPalabra.length;
     ocultar(game);
-    ocultar(addword);
     mostrar(buttons);
     mostrar(imgMain);
     mostrar(nombre);
@@ -275,7 +261,6 @@ function sumaPalabra() {
     ocultar(buttons);
     ocultar(imgMain);
     ocultar(nombre);
-    mostrar(addword);
     newWord.focus();
 }
 
@@ -315,12 +300,8 @@ function savestart() {
 startButton.onclick = arranque;
 newGameButton.onclick = reroll;
 document.onkeydown = jugarDesktop;
-addWordButton.onclick = sumaPalabra;
 returnButton.onclick = volver;
 cancelButton.onclick = volver;
 saveButton.onclick = savestart;
 letraV.oninput = jugarmobile;
-letraV.addEventListener("focusout", pausar);
-letraV.addEventListener("focus", continuar);
-pausa.addEventListener("click", continuar);
 newWord.addEventListener("keyup", palabraPropia);
